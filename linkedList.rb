@@ -1,5 +1,7 @@
-class LinkedList
+# frozen_string_literal: true
 
+# Class that allows a linked list to be created with the sub class Node
+class LinkedList
   attr_accessor :name
 
   def initialize
@@ -20,11 +22,10 @@ class LinkedList
   def append(node)
     if @head.nil?
       @head = node
-      @tail = node
     else
       @tail.next_node = node
-      @tail = node
     end
+    @tail = node
   end
 
   def size
@@ -33,11 +34,13 @@ class LinkedList
 
   def head
     return nil if @head.nil?
+
     @head
   end
 
   def tail
     return nil if @tail.nil?
+
     @tail
   end
 
@@ -65,11 +68,20 @@ class LinkedList
   end
 
   def remove_at(index)
-    #TODO
+    node = @head
+    counter = 0
+
+    while counter < index
+      previous_node = node
+      node = node.next_node
+      counter += 1
+    end
+    previous_node.next_node = node.next_node
   end
 
   def pop
     return nil if head.nil?
+
     current_node = @head
     prev_node = nil
     while current_node.next_node
@@ -84,6 +96,7 @@ class LinkedList
     node = @head
     while node
       return true if node.value == value
+
       node = node.next_node
     end
     false
@@ -93,9 +106,10 @@ class LinkedList
     node = @head
     while node
       return node if node.value == value
+
       node = node.next_node
     end
-    "Value not present"
+    'Value not present'
   end
 
   def to_s
@@ -106,14 +120,15 @@ class LinkedList
     end
     print "nil\n"
   end
-
 end
 
+# Creates a node with a value and a pointer to the next node in the list
 class Node
   attr_accessor :value, :next_node
+
   @@number_of_nodes = 0
 
-  def initialize value = nil, next_node = nil
+  def initialize(value = nil, next_node = nil)
     @value = value
     @next_node = next_node
     @@number_of_nodes += 1
@@ -134,9 +149,11 @@ puts list1.size
 puts "Head: #{list1.head}"
 puts "Tail: #{list1.tail}"
 puts list1
-# puts list1.contains?(490)
-# puts list1.find(40)
-# puts list1.at(3)
-# puts list1.pop
+puts list1.contains?(490)
+puts list1.find(40)
+puts list1.at(3)
+puts list1.pop
 list1.insert_at(20, 2)
+puts list1
+list1.remove_at(2)
 puts list1
