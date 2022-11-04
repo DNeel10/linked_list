@@ -145,6 +145,7 @@ list1 = LinkedList.new
 
 list1.prepend(Node.new(100))
 list1.prepend(Node.new(40))
+puts list1
 list1.append(Node.new(30))
 list1.prepend(Node.new(60))
 puts list1.size
@@ -153,7 +154,7 @@ puts "Tail: #{list1.tail}"
 puts list1
 puts list1.contains?(490)
 puts list1.find(40)
-puts list1.at(3)
+puts list1.at(2)
 puts list1.pop
 list1.insert_at(20, 2)
 puts list1
