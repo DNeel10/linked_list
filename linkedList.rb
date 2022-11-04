@@ -122,12 +122,12 @@ class LinkedList
     node = @head
     list = "(#{node})"
     counter = 0
-    while counter < self.size
-      list << " -> #{node.next_node}"
+    while counter < self.size - 1
+      list << " -> (#{node.next_node})"
       node = node.next_node
       counter += 1
     end
-    list << 'nil'
+    list << ' -> nil'
     list
   end
 end
