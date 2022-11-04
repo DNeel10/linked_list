@@ -29,7 +29,13 @@ class LinkedList
   end
 
   def size
-    Node.count
+    counter = 0
+    node = @head
+    while node
+      node = node.next_node
+      counter += 1
+    end
+    counter
   end
 
   def head
@@ -145,7 +151,7 @@ list1 = LinkedList.new
 
 list1.prepend(Node.new(100))
 list1.prepend(Node.new(40))
-puts list1
+puts list1.size
 # list1.append(Node.new(30))
 # list1.prepend(Node.new(60))
 # puts list1.size
@@ -157,6 +163,6 @@ puts list1
 # puts list1.at(2)
 # puts list1.pop
 list1.insert_at(20, 2)
-puts list1
+puts list1.size
 list1.remove_at(2)
-puts list1
+puts list1.size
