@@ -139,6 +139,8 @@ class Node
   end
 end
 
+# testing some different methods
+
 list1 = LinkedList.new
 
 list1.prepend(Node.new(100))
