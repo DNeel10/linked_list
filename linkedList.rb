@@ -120,11 +120,15 @@ class LinkedList
 
   def to_s
     node = @head
-    while node
-      print "(#{node}) -> "
+    list = "(#{node})"
+    counter = 0
+    while counter < self.size
+      list << " -> #{node.next_node}"
       node = node.next_node
+      counter += 1
     end
-    print "nil\n"
+    list << 'nil'
+    list
   end
 end
 
@@ -151,7 +155,7 @@ list1 = LinkedList.new
 
 list1.prepend(Node.new(100))
 list1.prepend(Node.new(40))
-puts list1.size
+puts list1
 # list1.append(Node.new(30))
 # list1.prepend(Node.new(60))
 # puts list1.size
@@ -163,6 +167,6 @@ puts list1.size
 # puts list1.at(2)
 # puts list1.pop
 list1.insert_at(20, 2)
-puts list1.size
+puts list1
 list1.remove_at(2)
-puts list1.size
+puts list1
